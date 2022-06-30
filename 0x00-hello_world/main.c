@@ -2,6 +2,6 @@
 
 int main()
 {
-      	printf("run in the preprocessor only")
+      	printf("run in the preprocessor only");
 	return (0);
 }
