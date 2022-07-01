@@ -9,8 +9,8 @@ int main(void)
 	int x;
 
 	for (x = 'z'; x >= 'a'; x--)
-		putchar(rev[x]);
-	putchar('\n'');
+		putchar(x);
+	putchar('\n');
 
 	return (0);
 }
