@@ -1,14 +1,12 @@
 #include "main.h"
 /**
- * 10-add - Check description
- * Check description: adds two integers
- * Return: addition of x and y
+ * add - Check description
+ * @a: An integer a
+ * @b: An integer b
+ * Description: Function that adds two integers and returns the result
+ * Return: Result to add a and b
  */
-int add(int x, int y);
+int add(int a, int b)
 {
-	int n;
-
-	n = x + y;
-	
-	return (n);
+	return (a + b);
 }
