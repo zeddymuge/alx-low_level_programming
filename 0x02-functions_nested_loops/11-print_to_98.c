@@ -3,19 +3,20 @@
 /**
  * print_to_98 - Check main
  * print_to_98 - Check
+ * n = start
  * Description: function that prints all natural numbers
- * from w to 98, followed by a new line.
+ * from n to 98, followed by a new line.
  * Return: Nothing
  */
-void print_to_98(int w)
+void print_to_98(int n)
 {
-	if (w <= 98)
+	if (n <= 98)
 	{
-		for (; w <= 98; w++)
+		for (; n <= 98; n++)
 		{
-			printf("%d", w);
+			printf("%d", n);
 
-			if (w == 98)
+			if (n == 98)
 				continue;
 			printf(", ");
 		}
@@ -23,11 +24,11 @@ void print_to_98(int w)
 	}
 	else
 	{
-		for (; w >= 98; w--)
+		for (; n >= 98; n--)
 		{
-			printf("%d", w);
+			printf("%d", n);
 
-			if (w == 98)
+			if (n == 98)
 				continue;
 			printf(", ");
 		}
