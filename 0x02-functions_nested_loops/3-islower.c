@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * islower - checks for alphabetical letters
- * @c: a character to be checked on
- * Description: function uses _putchar function to print
+ *  _islower - Check main
+ * _islower: checks the character if lower_case
+ * @c: An input character
  * Return: 1 if is lowercase or 0 if is uppercase
  */
 int _islower(int c)
