@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int i;
+	int count;
 	unsigned long int z1 = 0, y1 = 1, z2 = 0, y2 = 2;
 	unsigned long int a, b, c;
 
