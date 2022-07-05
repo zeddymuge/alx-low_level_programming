@@ -5,15 +5,15 @@
  * Description: function uses _putchar function to print
  * Return: 1 if is lowercase or 0 if is uppercase
  */
-int _islower(int c);
+int _islower(int c)
 {
-	char a;
+	char b;
 	int lower = 0;
 
-	for (a = 'a'; a <= 'z'; a++)
+	for (b = 'a'; b <= 'z'; b++)
 	{
-		if (a == c)
-			islower = 1;
+		if (b == c)
+			lower = 1;
 	}
 
 	return (lower);
