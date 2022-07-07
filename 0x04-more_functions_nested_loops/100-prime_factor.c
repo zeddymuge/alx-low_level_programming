@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - Entry point
@@ -7,17 +7,13 @@
  */
 int main(void)
 {
-	long int n, x;
+	unsigned long int i = 3, n = 612852475143;
 
-	n = 612852475143;
-	for (x = 2; x <= n; x++)
+	for (; i < 12057; i += 2)
 	{
-		if (n % x == 0)
-		{
-			n /= x;
-			x--;
-		}
+		while (n % i == 0 && n != i)
+			n /= i;
 	}
-	printf("%ld\n", x);
+	printf("%lu\n", n);
 	return (0);
 }
