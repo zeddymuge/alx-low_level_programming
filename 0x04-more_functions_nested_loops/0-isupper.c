@@ -10,7 +10,7 @@
 int _isupper(int c)
 {
 	int upper = 1;
-	int i;
+	char i = 'A';
 
 	for (i = 'A'; i <= 'Z'; i++)
 	{
