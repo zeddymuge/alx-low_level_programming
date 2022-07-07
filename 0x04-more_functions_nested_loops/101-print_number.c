@@ -8,14 +8,14 @@
  * Return: nothing
  */
 
-void print_number(int m)
+void print_number(int n)
 {
-	unsigned int s = m;
+	unsigned int s = n;
 
-	if (m < 0)
+	if (n < 0)
 	{
-		m *= -1;
-		s = m;
+		n *= -1;
+		s = n;
 		_putchar('-');
 	}
 
@@ -24,6 +24,6 @@ void print_number(int m)
 	if (s != 0)
 		print_number(s);
 
-	_putchar((unsigned int) m % 10 + '0');
+	_putchar((unsigned int) n % 10 + '0');
 
 }
