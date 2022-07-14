@@ -1,26 +1,30 @@
 #include "main.h"
 /**
  * rot13 - encodes a string in rot13
- * @s: string to be encoded
+ * @str: string to be encoded
  * Return: the resulting string
  */
-char *leet(char *str)
+char *rot13(char *str)
 {
-	 int i, j;
+	int u[] = {65, 69, 79, 84, 76};
+	int l[] = {97, 101, 111, 116, 108};
+	int x[] = {52, 51, 48, 55, 49};
+	int i = 0;
+	int j;
 
-	 char x[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	 char y[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	 for (i = 0; str[i] != '\0'; i++)
-	 {
-		 for (j = 0; x[j] != '\0'; j++)
-		 {
-			 if (str[i] == x[j])
-			 {
-				 str[i] == y[j];
-				 break;
-			 }
-		 }
-	 }
+	while (str[i] != '\0')
+	{
+		for (j = 0; j < 5; j++)
+		{
+			if (str[i] == u[j] || str[i] == l[j])
+			{
+				str[i] = x[j];
+				break;
+			}
+		}
+		i++;
+	}
 
-	 return (str);
+	return (str);
 }
+
