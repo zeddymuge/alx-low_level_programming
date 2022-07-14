@@ -6,6 +6,15 @@
  */
 void print_number(int n)
 {
+
+#include "main.h"
+/**
+ * print_number - prints an integer.
+ * @n: input integer.
+ * Return: void.
+ */
+void print_number(int n)
+{
 	unsigned int l, m, o;
 
 	if (n < 0)
