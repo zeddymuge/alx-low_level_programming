@@ -1,8 +1,8 @@
 #include <string.h>
 #include "main.h"
 /**
- * string_toupper - change all lowercase to uppercase
- * @y: pointer
+ * string_toupper - changes lowercase to uppercase
+ * @n: pointer
  * Return: the value of n
  */
 char *string_toupper(char *n)
