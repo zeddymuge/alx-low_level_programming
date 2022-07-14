@@ -6,25 +6,22 @@
  */
 char *rot13(char *str)
 {
-	int u[] = {65, 69, 79, 84, 76};
-	int l[] = {97, 101, 111, 116, 108};
-	int x[] = {52, 51, 48, 55, 49};
-	int i = 0;
-	int j;
+	int i, j;
 
-	while (str[i] != '\0')
+	char m[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char n[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; m[j] != '\0'; j++)
 		{
-			if (str[i] == u[j] || str[i] == l[j])
+			if (str[i] == m[j])
 			{
-				str[i] = x[j];
+				str[i] = n[j];
 				break;
 			}
 		}
-		i++;
 	}
-
 	return (str);
 }
 
