@@ -1,115 +1,115 @@
-###
-C - More pointers, arrays and strings
 
-0. 0-strcat.c - Write a function that concatenates two strings.
+# C - More pointers, arrays and strings
 
+### 0. 0-strcat.c - Write a function that concatenates two strings.
 
 
-Prototype: char *_strcat(char *dest, char *src);
 
-This function appends the src string to the dest string, overwriting the terminating null byte (\0) at the end of dest, and then adds a terminating null byte
+- Prototype: char *_strcat(char *dest, char *src);
 
-Returns a pointer to the resulting string dest
+- This function appends the src string to the dest string, overwriting the terminating null byte (\0) at the end of dest, and then adds a terminating null byte
 
-FYI: The standard library provides a similar function: strcat. Run man strcat to learn more.
+- Returns a pointer to the resulting string dest
 
-1. 1-strncat.c - Write a function that concatenates two strings.
+- FYI: The standard library provides a similar function: strcat. Run man strcat to learn more.
 
+### 1. 1-strncat.c - Write a function that concatenates two strings.
 
 
-Prototype: char *_strncat(char *dest, char *src, int n);
 
-The _strncat function is similar to the _strcat function, except that
+- Prototype: char *_strncat(char *dest, char *src, int n);
 
-it will use at most n bytes from src; and
+- The _strncat function is similar to the _strcat function, except that
 
-src does not need to be null-terminated if it contains n or more bytes
+- it will use at most n bytes from src; and
 
-Return a pointer to the resulting string dest
+- src does not need to be null-terminated if it contains n or more bytes
 
-FYI: The standard library provides a similar function: strncat. Run man strncat to learn more.
+- Return a pointer to the resulting string dest
 
-2. 2-strncpy.c - Write a function that copies a string.
+- FYI: The standard library provides a similar function: strncat. Run man strncat to learn more.
 
+### 2. 2-strncpy.c - Write a function that copies a string.
 
 
-Prototype: char *_strncpy(char *dest, char *src, int n);
 
-Your function should work exactly like strncpy
+- Prototype: char *_strncpy(char *dest, char *src, int n);
 
-FYI: The standard library provides a similar function: strncpy. Run man strncpy to learn more.
+- Your function should work exactly like strncpy
 
-3. 3-strcmp.c - Write a function that compares two strings.
+- FYI: The standard library provides a similar function: strncpy. Run man strncpy to learn more.
 
+### 3. 3-strcmp.c - Write a function that compares two strings.
 
 
-Prototype: int _strcmp(char *s1, char *s2);
 
-Your function should work exactly like strcmp
+- Prototype: int _strcmp(char *s1, char *s2);
 
-FYI: The standard library provides a similar function: strcmp. Run man strcmp to learn more.
+- Your function should work exactly like strcmp
 
-4. 4-rev_array.c - Write a function that reverses the content of an array of integers.
+- FYI: The standard library provides a similar function: strcmp. Run man strcmp to learn more.
 
+### 4. 4-rev_array.c - Write a function that reverses the content of an array of integers.
 
 
-Prototype: void reverse_array(int *a, int n);
 
-Where n is the number of elements of the array
+- Prototype: void reverse_array(int *a, int n);
 
-5. 5-string_toupper.c - Write a function that changes all lowercase letters of a string to uppercase.
+- Where n is the number of elements of the array
 
+### 5. 5-string_toupper.c - Write a function that changes all lowercase letters of a string to uppercase.
 
 
-Prototype: char *string_toupper(char *);
 
-6. 6-cap_string.c - Write a function that capitalizes all words of a string.
+- Prototype: char *string_toupper(char *);
 
+### 6. 6-cap_string.c - Write a function that capitalizes all words of a string.
 
 
-Prototype: char *cap_string(char *);
 
-Separators of words: space, tabulation, new line, ,, ;, ., !, ?, ", (, ), {, and }
+- Prototype: char *cap_string(char *);
 
- 7. 7-leet.c - Write a function that encodes a string into 1337.
+- Separators of words: space, tabulation, new line, ,, ;, ., !, ?, ", (, ), {, and }
 
+ ### 7. 7-leet.c - Write a function that encodes a string into 1337.
 
 
-Letters a and A should be replaced by 4
 
-Letters e and E should be replaced by 3
+- Letters a and A should be replaced by 4
 
-Letters o and O should be replaced by 0
+- Letters e and E should be replaced by 3
 
-Letters t and T should be replaced by 7
+- Letters o and O should be replaced by 0
 
-Letters l and L should be replaced by 1
+- Letters t and T should be replaced by 7
 
-Prototype: char *leet(char *);
+- Letters l and L should be replaced by 1
 
-You can only use one if in your code
+- Prototype: char *leet(char *);
 
-You can only use two loops in your code
+- You can only use one if in your code
 
-You are not allowed to use switch
+- You can only use two loops in your code
 
-You are not allowed to use any ternary operation
+- You are not allowed to use switch
 
-8. 100-rot13.c - Write a function that encodes a string using rot13.
+- You are not allowed to use any ternary operation
 
+### 8. 100-rot13.c - Write a function that encodes a string using rot13.
 
 
-Prototype: char *rot13(char *);
 
-You can only use if statement once in your code
+- Prototype: char *rot13(char *);
 
-You can only use two loops in your code
+- You can only use if statement once in your code
 
-You are not allowed to use switch
+- You can only use two loops in your code
 
-You are not allowed to use any ternary operation
+- You are not allowed to use switch
 
-9. 101-print_number.c - Write a function that prints an integer.
+- You are not allowed to use any ternary operation
+
+### 9. 101-print_number.c - Write a function that prints an integer.
 
 
 
