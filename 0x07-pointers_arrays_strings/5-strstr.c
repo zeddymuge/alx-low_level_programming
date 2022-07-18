@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 #include "main.h"
 #include <stdlib.h>
-=======
 #include <stdio.h>
-#include "main.h"
->>>>>>> f5644cb18ffec6006289719ad3a1b22238ba4c96
 
 /**
  * _strstr -  a function that locates a substring.
@@ -15,21 +11,20 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	char *s = needle, *h = haystack;
+	char *st = needle, *th = haystack;
 
 	while (*haystack)
 	{
-		h = haystack;
-		needle = s;
+		th = haystack;
+		needle = st;
 		while (*haystack == *needle)
 		{
 			haystack++;
 			needle++;
 		}
-
 		if (*needle == '\0')
 			return (haystack);
-		haystack = h + 1;
+		haystack = th + 1;
 	}
 	return (NULL);
 }
