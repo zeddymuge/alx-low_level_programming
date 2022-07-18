@@ -9,16 +9,14 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int x;
+	int x, y;
 	int add;
 	int sum;
-	int large = size * size;
 
-	for (x = 0; x < large; x += size + 1)
-		sum += a[x];
-	for (x = size - 1; x < large - 1; x += size - 1)
-		add += a[x];
-
+	for (x = 0; x < size; x++)
+		sum += a[(size + 1) * x];
+	for (y = 0; y < size; y++)
+		add += a[(size - 1) * (y + 1)];
 	printf("%d, %d\n", sum, add);
 }
 
