@@ -3,8 +3,8 @@
 #include <stdlib.h>
 /**
  * main - ctakes two arguments
- * @argc - argument count
- * @argv - argument value
+ * @argc: argument count
+ * @argv: argument value
  * Return: always 0.
  */
 int main(int argc, char *argv[])
