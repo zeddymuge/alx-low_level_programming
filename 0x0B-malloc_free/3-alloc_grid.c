@@ -3,47 +3,42 @@
 #include <stdlib.h>
 
 /**
- * argstostr - function that concatenates all the arguments of your program
+ * alloc_grid - function that returns a pointer to a 2 dimensional array of int
  *
- * @ac: argument count
- * @av: pointer to a string of pointers to strings
+ * @width: width of the grid
+ * @height: height of the grid
  *
  * Return: address of the newly allocated memory
  */
 
-char *argstostr(int ac, char **av)
+int **alloc_grid(int width, int height)
 {
-	int x, y, z;
-	int len = 0;
-	char *arg_concat;
+	int i, j, m, n;
+	int **grid;
 
-	if (ac == 0 || av == NULL)
+	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	for (x = 0; x < ac; x++)
-	{
-		for (y = 0; av[x][y] != '\0'; y++)
-			len++;
-		len++;
-	}
-	len++;
-
-	arg_concat = malloc(len * sizeof(char));
-	if (arg_concat == NULL)
-	{
-		free(arg_concat);
+	grid = malloc(height * sizeof(int *));
+	if (grid == NULL)
 		return (NULL);
-	}
-
-	z = 0;
-	for (x = 0; x < ac; x++)
+	for (i = 0; i < height; i++)
 	{
-		for (y = 0; av[x][y] != '\0'; y++, z++)
+		grid[i] = malloc(width * sizeof(int));
+		if (grid[i] == NULL)
 		{
-			arg_concat[z] = av[x][y];
+			for (j = 0; j < i; j++)
+			{
+				free(grid[j]);
+			}
+			free(grid);
+			return (NULL);
 		}
-		arg_concat[z] = '\n';
-		z++;
 	}
-	return (arg_concat);
+	for (m = 0; m < height; m++)
+	{
+		for (n = 0; n < width; n++)
+			grid[m][n] = 0;
+	}
+	return (grid);
 }
