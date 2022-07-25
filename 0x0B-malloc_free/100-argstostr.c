@@ -1,43 +1,49 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+
 /**
- * argstostr - A function that concatenates all arguments of your program
- * @ac: number of arguments
- * @av: array containing arguments
- * Return: A pointer to string that containing all arguments
- * or NULL if ac == 0, if av == NULL, or upon failure
+ * argstostr - function that concatenates all the arguments of your program
+ *
+ * @ac: argument count
+ * @av: pointer to a string of pointers to strings
+ *
+ * Return: address of the newly allocated memory
  */
+
 char *argstostr(int ac, char **av)
 {
-	char *new_str;
-	int len = 0, w = 0, x = 0, y = 0;
+	int x, y, z;
+	int slen = 0;
+	char *arg_concat;
 
-	if (ac <= 0 || av == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
-	for (; w < ac; w++)
+
+	for (x = 0; x < ac; x++)
 	{
-		for (; av[w][x] != '\0'; x++)
-			len++;
-		len++;
+		for (y = 0; av[x][y] != '\0'; y++)
+			slen++;
+		slen++;
 	}
-	len++;
-	new_str = malloc(len * sizeof(char));
-	if (new_str == NULL)
+	slen++;
+
+	arg_concat = malloc(slen * sizeof(char));
+	if (arg_concat == NULL)
 	{
-		free(new_str);
+		free(arg_concat);
 		return (NULL);
 	}
-	for (w = 0; w < ac; w++)
+
+	z = 0;
+	for (x = 0; x < ac; x++)
 	{
-		for (x = 0; av[w][x] != '\0'; x++, y++)
+		for (y = 0; av[x][y] != '\0'; y++, z++)
 		{
-			new_str[y] = av[w][x];
+			arg_concat[z] = av[x][y];
 		}
-		new_str[y] = '\n';
-		y++;
+		arg_concat[z] = '\n';
+		z++;
 	}
-
-	return (new_str);
+	return (arg_concat);
 }
-
-
