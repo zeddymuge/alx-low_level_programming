@@ -7,27 +7,21 @@
  * @argv: n arguments
  * Return: int
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv[])
 {
-	unsigned long mul;
-	int i, j;                                                                                                                                                       if (argc != 3)
+	int num1, num2, result;
+
+	if (argc != 3)
 	{
-		puts("Error\n");
+		printf("Error\n");
 		exit(98);
 	}
-	for (i = 1; i < argc; i++)
+	else
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
-			{
-				printf("Error\n");
-				exit(98);
-			}
-		}
-
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[2]);
+		result = num1 * num2;
+		printf("%d\n", result);
+		return (0);
 	}
-	mul = atoi(argv[1]) * atoi(argv[2]);
-	puts(mul);
-return (0);
 }
