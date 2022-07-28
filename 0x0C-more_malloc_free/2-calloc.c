@@ -18,10 +18,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (arrayy == NULL)
 		return (NULL);
 	for (x = 0; x < size; x++)
-	{
 		arrayy[x] = 0;
-	}
-
+	
 	return (arrayy);
 }
 
