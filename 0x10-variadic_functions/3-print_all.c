@@ -10,45 +10,43 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	char *all;
-	int x;
+	unsigned int x = 0, y, c = 0;
+	char *str;
+	const char t_arg[] = "cifs";
 
 	va_start(ap, format);
-	while (format == NULL)
+	while (format && format[x])
 	{
-		printf("\n");
-		return;
-	}
-	while (format[x])
-	{
-		switch (format[i])
+		y = 0;
+		while (t_arg[y])
 		{
-			case 'c':
-				printf("%d", (char) va_arg(ap, int));
+			if (format[x] == t_arg[y] && c)
+			{
+				printf(", ");
 				break;
-			case 'i':
-				printf("%d", va_arg(ap, int));
-				break;
-			case 'f':
-				printf("%f", (float) va_arg(ap, double));
-				break;
-			case 's':
-				all = va_start(ap, cahr*);
-				if (all != NULL)
-				{
-					printf("%s", all);
-					break;
-				}
+			} y++;
+		}
+		switch (format[x])
+		{
+		case 'c':
+			printf("%c", va_arg(ap, int)), c = 1;
+			break;
+		case 'i':
+			printf("%d", va_arg(ap, int)), c = 1;
+			break;
+		case 'f':
+			printf("%f", va_arg(ap, double)), c = 1;
+			break;
+		case 's':
+			str = va_arg(ap, char *), c = 1;
+			if (!str)
+			{
 				printf("(nil)");
 				break;
-		}
-		if ((format[x] == 'c' || format[x] == 'i' || format[x] == 'f' || format[x] == 's') && format[(x + 1)] != '\0')
-			printf(", ");
-		x++;
+			}
+			printf("%s", str);
+			break;
+		} x++;
 	}
-	va_end(ap);
-	printf("\n");
+	printf("\n"), va_end(ap);
 }
-
-
-
