@@ -1,38 +1,51 @@
 #include "lists.h"
+
 /**
- * insert_nodeint_at_index - insert a node at some index
- * @head: The head node
- * @idx: index given by main
- * @n: number to insert in the node
- * Return: @new  address of the new node
+ * insert_nodeint_at_index - inserts a new node
+ * at a given position.
+ * @head: head of a list.
+ * @idx: index of the list where the new node is
+ * added.
+ * @n: integer element.
+ *
+ * Return: the address of the new node, or NULL if it
+ * failed.
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *ptr;
-	listint_t *tmp;
-	unsigned int position = 1;/*It stars counting positions at 1*/
+	unsigned int i;
+	listint_t *new;
+	listint_t *h;
 
-	ptr = malloc(sizeof(listint_t));
-	if (!new || !head)
+	h = *head;
+
+	if (idx != 0)
+	{
+		for (i = 0; i < idx - 1 && h != NULL; i++)
+		{
+			h = h->next;
+		}
+	}
+
+	if (h == NULL && idx != 0)
 		return (NULL);
-	ptr->n = n;
+
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->n = n;
+
 	if (idx == 0)
 	{
-		ptr->next = *head;
-		*head = ptr;
-		return (ptr);
+		new->next = *head;
+		*head = new;
 	}
-	if (*head == 0)
-		return (NULL);
-	tmp = *head;
-	while (position < idx)
+	else
 	{
-		if (tmp == NULL)
-			return (NULL);
-		tmp = tmp->next;/*to put tmp in the place we want*/
-		position++;
+		new->next = h->next;
+		h->next = new;
 	}
-	ptr->next = tmp->next;
-	tmp->next = ptr;
-	return (ptr);
+
+	return (new);
 }
