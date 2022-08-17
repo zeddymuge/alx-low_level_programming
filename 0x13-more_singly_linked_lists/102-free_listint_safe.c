@@ -1,45 +1,40 @@
-#include <stdio.h>
 #include "lists.h"
-#include <stdlib.h>
 
 /**
- * free_listint_safe - A function that frees a list
- * @h: A pointer listint_t structure
- * Return: The size of the list that was free'd
+ * free_listint_safe - frees a listint_t list
+ * @h: pointer to pointer of the first node in the list
+ * can free lists with a loop
+ *
+ * Return: the size of the list that was free’d. Otherwise 0
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t counter = 0;
-	listint_t *temp;
+	listnode_t *nodes = NULL;
+	listint_t *current;
+	size_t count = 0;
 
-	temp = *h;
-	while (temp)
+	if (h == NULL)
+		return (0);
+
+	/* while you have not encountered a loop */
+	while (!is_in_nodes(nodes, *h))
 	{
-		temp = *h;
-		temp = temp->next;
-		free_list(temp);
-		counter++;
+		if (!add_nodeptr(&nodes, *h))
+		{
+			free_listnode(nodes);
+			exit(98);
+		}
+
+		current = *h;
+		*h = (*h)->next;
+		free(current);
+
+		count++;
 	}
-	*h = NULL;
 
-	return (counter);
-}
+	if (*h != NULL)
+		*h = NULL;
 
-/**
- * free_list - A function that frees a listint_t recursively
- * @head: A pointer to the listint_t structure
- * Return: Nothing
- */
-void free_list(listint_t *head)
-{
-	listint_t *temp;
-
-	if (head)
-	{
-		temp = head;
-		temp = temp->next;
-		free(temp);
-		free_list(temp);
-	}
-	free(head);
+	free_listnode(nodes);
+	return (count);
 }
