@@ -9,37 +9,32 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t counter = 0;
-	listint_t *temp;
+	listnode_t *nodes = NULL;
+	listint_t *current;
+	size_t count = 0;
 
-	temp = *h;
-	while (temp)
+	if (h == NULL)
+		return (0);
+
+	/* while you have not encountered a loop */
+	while (!is_in_nodes(nodes, *h))
 	{
-		temp = *h;
-		temp = temp->next;
-		free_list(temp);
-		counter++;
+		if (!add_nodeptr(&nodes, *h))
+		{
+			free_listnode(nodes);
+			exit(98);
+		}
+
+		current = *h;
+		*h = (*h)->next;
+		free(current);
+
+		count++;
 	}
-	*h = NULL;
 
-	return (counter);
-}
+	if (*h != NULL)
+		*h = NULL;
 
-/**
- * free_list - A function that frees a listint_t recursively
- * @head: A pointer to the listint_t structure
- * Return: Nothing
- */
-void free_list(listint_t *head)
-{
-	listint_t *temp;
-
-	if (head)
-	{
-		temp = head;
-		temp = temp->next;
-		free(temp);
-		free_list(temp);
-	}
-	free(head);
+	free_listnode(nodes);
+	return (count);
 }
