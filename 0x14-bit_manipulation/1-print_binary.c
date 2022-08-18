@@ -1,28 +1,30 @@
 #include "main.h"
-
 /**
- * print_binary - A function that prints a binary number without % or /
- * @n: The number to be printed
- * Return: Nothing
+ * print_binary - convert number to binary
+ * @n: binary
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int flag = 0, max = 32768; /* 1000 0000 0000 0000 */
+	unsigned long int n_copy = n, mask = 1;
+	int len = 0;
 
-	if (n == 0)
+	while (n_copy > 0)
 	{
-		_putchar('0');
-		return;
+		len++;
+		n_copy >>= 1;
 	}
-	while (max)
+	len -= 1;
+
+	if (len > 0) /* create mask based on length of num */
+		mask = mask << len;
+
+	while (mask > 0) /* match each rightmost bit to see if 1 or 0 */
 	{
-		if (flag == 1 && (n & max) == 0)
-			_putchar('0');
-		else if ((n & max) != 0)
-		{
+		if (n & mask)
 			_putchar('1');
-			flag = 1;
-		}
-		max >>= 1;
+		else
+			_putchar('0');
+
+		mask >>= 1;
 	}
 }
